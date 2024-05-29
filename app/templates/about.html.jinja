@@ -1,0 +1,30 @@
+{% extends "base.html.jinja" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wizytówka</title>
+    <meta charset="UTF-8">
+		<meta http-equiv="Content-language" content="pl">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:400,700|Kanit:400,700" rel="stylesheet">
+    <script src="skrypt.js" defer></script>
+  </head>
+  <body>
+      <div id="img-logo">
+        <img class="logo" src="{{ url_for('static', filename='img-logo.jpg') }}" alt="Logo" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      </div>
+
+      <main>
+        <h2>Informacje osobiste:</h2>
+                              <p>Adrian Węglarz</p>
+                              <p><b>Miejscowość:</b> Wilczyce</p>
+                              <p><b>Wiek:</b> 20 lat</p>
+                              <h2>Zainteresowania:</h2>
+                              <p>Kolarstwo</p>
+                              <p>Formuła 1</p>
+      </main>
+    </div>
+  </body>
+</html>
+{% endblock content %}

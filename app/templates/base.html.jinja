@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Wizytówka{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('extract') }}">Ekstrakcja opinii</a></li>
+            <li><a href="{{ url_for('list') }}">Lista produktów</a></li>
+            <li><a href="{{ url_for('home') }}">Strona główna</a></li>
+            <li><a href="{{ url_for('about') }}">O autorze</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}
+        <section>
+            <h2>Co to jest Ceneo Web Scraper?</h2>
+            <p>Ceneo Web Scraper to porównywarka cen danych produktów, działająca na podobnej zasadzie co <a class="link" href="https://ceneo.pl">CENEO.PL</a>. Chcesz wiedzieć, gdzie jest tanio? Albo chcesz znać opinie o danym produkcie? To tutaj!</p>
+            <h2>Z jakich bibliotek korzystam?</h2>
+            <p>Blinker, Click, Flask, Itsdangerous, Jinja2, MarkupSafe, Werkzeug</p>
+            <h2>Jakie zastosowałam podejścia?</h2>
+            <p>Strukturalne oraz obiektowe</p>
+        </section>
+        {% endblock %}
+    </main>
+    <footer>
+        {% block footer %}
+        <h3>Adrian Węglarz © Akademia Nauk Stosowanych w Nowym Targu</h3>
+        <p>Wszelkie prawa zastrzeżone &copy; 2024 Adrian Węglarz</p>
+        <p>Strona jest tworzona w ramach projektu zaliczeniowego</p>
+        {% endblock %}
+    </footer>
+</body>
+</html>

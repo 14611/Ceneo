@@ -1,0 +1,41 @@
+{% extends "base.html.jinja" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opinie</title>
+</head>
+<body>
+        <h1>Wybierz produkt</h1>
+    <form action="/extract" method="POST">
+    <button type="submit" name="product" value="product1">Brother DCP-1610WE</button>
+    <button type="submit" name="product" value="product2">Samsung Galaxy S24 Ultra</button>
+    <button type="submit" name="product" value="product3">PHILIPS AquaTrio 9000 3w1</button>
+    <button type="submit" name="product" value="product4">GARMIN Forerunner 165</button>
+</form>
+
+
+    <h1>Opinie</h1>
+    {% for opinion in product %}
+    <div class="opinion">
+        <h3>{{ opinion.author }}</h3>
+        <p>Ocena: {{ opinion.stars }}</p>
+        <p>{{ opinion.content }}</p>
+        <p>Data napisania: {{ opinion.post_date }}</p>
+        <p>Data zakupu: {{ opinion.purchase_date }}</p>
+        <p>Pomocna: {{ opinion.useful }}</p>
+        <p>Niepomocna: {{ opinion.useless }}</p>
+        {% if opinion.pros %}
+        <p>Plusy: {{ ', '.join(opinion.pros) }}</p>
+        {% endif %}
+        {% if opinion.cons %}
+        <p>Minusy: {{ ', '.join(opinion.cons) }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+</html>
+{% endblock %}
